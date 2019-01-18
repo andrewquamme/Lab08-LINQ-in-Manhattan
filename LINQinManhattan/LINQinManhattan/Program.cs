@@ -55,6 +55,12 @@ namespace LINQinManhattan
             Console.WriteLine("===============================================================================================");
         }
 
+        /// <summary>
+        /// Read JSON file from path and parse
+        /// to create a collection of objects
+        /// </summary>
+        /// <param name="path">filepath</param>
+        /// <returns>Collection of "Feature" objects</returns>
         public static FeatureCollection ReadJSON(string path)
         {
             string json = File.ReadAllText(path);
