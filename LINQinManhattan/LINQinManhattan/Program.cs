@@ -56,8 +56,10 @@ namespace LINQinManhattan
             {
                 Console.WriteLine(neighborhood);
             }
+            Console.WriteLine("===============================================================================================");
 
-            //Console.WriteLine("Rewrite the queries from above, and consolidate all into one single query.");
+            Console.WriteLine("Rewrite the queries from above, and consolidate all into one single query.");
+
         }
 
         /// <summary>
