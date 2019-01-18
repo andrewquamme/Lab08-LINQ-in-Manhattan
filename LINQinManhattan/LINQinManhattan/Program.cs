@@ -19,7 +19,7 @@ namespace LINQinManhattan
                 from feature in neighborhoods.features
                 select feature.properties.neighborhood;
             Console.WriteLine($"Manhattan Neighborhoods:");
-            foreach (var neighborhood in query1)
+            foreach (string neighborhood in query1)
             {
                 Console.WriteLine(neighborhood);
             }
@@ -30,7 +30,7 @@ namespace LINQinManhattan
                 from neighborhood in query1
                 where neighborhood != ""
                 select neighborhood;
-            foreach (var neighborhood in query2)
+            foreach (string neighborhood in query2)
             {
                 Console.WriteLine(neighborhood);
             }
