@@ -42,6 +42,17 @@ namespace LINQinManhattan
                 Console.WriteLine(feature.properties.neighborhood);
             }
             Console.WriteLine("===============================================================================================");
+
+            var query3 =
+                (from feature in neighborhoods.features
+                where feature.properties.neighborhood != ""
+                orderby feature.properties.neighborhood ascending
+                 select feature.properties.neighborhood).Distinct();
+            foreach (string neighborhood in query3)
+            {
+                Console.WriteLine(neighborhood);
+            }
+            Console.WriteLine("===============================================================================================");
         }
 
         public static FeatureCollection ReadJSON(string path)
@@ -49,6 +60,8 @@ namespace LINQinManhattan
             string json = File.ReadAllText(path);
             return JsonConvert.DeserializeObject<FeatureCollection>(json);
         }
+
+        
 
 
 
