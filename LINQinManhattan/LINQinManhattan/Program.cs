@@ -58,8 +58,12 @@ namespace LINQinManhattan
             }
             Console.WriteLine("===============================================================================================");
 
-            Console.WriteLine("Rewrite the queries from above, and consolidate all into one single query.");
-
+            Console.WriteLine("***Rewrite query1 as Lambda expression***");
+            var query5 = neighborhoods.features.Select(x => x.properties.neighborhood);
+            foreach (string neighborhood in query5)
+            {
+                Console.WriteLine(neighborhood);
+            }
         }
 
         /// <summary>
