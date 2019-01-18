@@ -37,9 +37,7 @@ namespace LINQinManhattan
             Console.WriteLine("===============================================================================================");
 
             Console.WriteLine("***Remove the Duplicates***");
-            var query3 =
-                (from neighborhood in query2
-                 select neighborhood).Distinct();
+            var query3 = query2.Distinct();
             foreach (string neighborhood in query3)
             {
                 Console.WriteLine(neighborhood);
