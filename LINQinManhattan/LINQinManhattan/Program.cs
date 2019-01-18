@@ -17,22 +17,22 @@ namespace LINQinManhattan
             Console.WriteLine("***Output all of the neighborhoods in this data list***");
             var query1 =
                 from feature in neighborhoods.features
-                select feature;
+                select feature.properties.neighborhood;
             Console.WriteLine($"Manhattan Neighborhoods:");
-            foreach (var feature in query1)
+            foreach (var neighborhood in query1)
             {
-                Console.WriteLine(feature.properties.neighborhood);
+                Console.WriteLine(neighborhood);
             }
             Console.WriteLine("===============================================================================================");
 
             Console.WriteLine("***Filter out all the neighborhoods that do not have any names***");
             var query2 =
-                from feature in neighborhoods.features
-                where feature.properties.neighborhood != ""
-                select feature;
-            foreach (var feature in query2)
+                from neighborhood in query1
+                where neighborhood != ""
+                select neighborhood;
+            foreach (var neighborhood in query2)
             {
-                Console.WriteLine(feature.properties.neighborhood);
+                Console.WriteLine(neighborhood);
             }
             Console.WriteLine("===============================================================================================");
 
@@ -47,6 +47,17 @@ namespace LINQinManhattan
                 Console.WriteLine(neighborhood);
             }
             Console.WriteLine("===============================================================================================");
+
+            Console.WriteLine("***Perform previous queries as one query***");
+            var query4 =
+                (from feature in neighborhoods.features
+                 where feature.properties.neighborhood != ""
+                 orderby feature.properties.neighborhood ascending
+                 select feature.properties.neighborhood).Distinct();
+            foreach (string neighborhood in query4)
+            {
+                Console.WriteLine(neighborhood);
+            }
 
             //Console.WriteLine("Rewrite the queries from above, and consolidate all into one single query.");
         }
