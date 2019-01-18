@@ -14,15 +14,34 @@ namespace LINQinManhattan
             string path = "../../../../../data.json";
             FeatureCollection neighborhoods = ReadJSON(path);
 
-            var query =
-                from feature in neighborhoods.features
-                where feature.properties.neighborhood == "Chelsea"
-                select feature;
+            //var queryTest =
+            //    from feature in neighborhoods.features
+            //    where feature.properties.neighborhood == "Chelsea"
+            //    select feature;
+            //foreach (var feature in queryTest)
+            //{
+            //    Console.WriteLine($"Zipcode: {feature.properties.zip} \nCoordinates: {feature.geometry.coordinates[0]},{feature.geometry.coordinates[1]}");
+            //}
 
-            foreach (var feature in query)
+            var query1 =
+                from feature in neighborhoods.features
+                select feature;
+            Console.WriteLine($"Manhattan Neighborhoods:");
+            foreach (var feature in query1)
             {
-                Console.WriteLine($"Zipcode: {feature.properties.zip} \nCoordinates: {feature.geometry.coordinates[0]},{feature.geometry.coordinates[1]}");
+                Console.WriteLine(feature.properties.neighborhood);
             }
+            Console.WriteLine("===============================================================================================");
+
+            var query2 =
+                from feature in neighborhoods.features
+                where feature.properties.neighborhood != ""
+                select feature;
+            foreach (var feature in query2)
+            {
+                Console.WriteLine(feature.properties.neighborhood);
+            }
+            Console.WriteLine("===============================================================================================");
         }
 
         public static FeatureCollection ReadJSON(string path)
