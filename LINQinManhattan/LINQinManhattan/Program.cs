@@ -38,10 +38,8 @@ namespace LINQinManhattan
 
             Console.WriteLine("***Remove the Duplicates***");
             var query3 =
-                (from feature in neighborhoods.features
-                where feature.properties.neighborhood != ""
-                orderby feature.properties.neighborhood ascending
-                 select feature.properties.neighborhood).Distinct();
+                (from neighborhood in query2
+                 select neighborhood).Distinct();
             foreach (string neighborhood in query3)
             {
                 Console.WriteLine(neighborhood);
