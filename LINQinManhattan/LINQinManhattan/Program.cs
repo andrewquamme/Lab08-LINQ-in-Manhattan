@@ -14,7 +14,7 @@ namespace LINQinManhattan
             string path = "../../../../../data.json";
             FeatureCollection neighborhoods = ReadJSON(path);
 
-            Console.WriteLine("Output all of the neighborhoods in this data list:");
+            Console.WriteLine("***Output all of the neighborhoods in this data list***");
             var query1 =
                 from feature in neighborhoods.features
                 select feature;
@@ -25,7 +25,7 @@ namespace LINQinManhattan
             }
             Console.WriteLine("===============================================================================================");
 
-            Console.WriteLine("Filter out all the neighborhoods that do not have any names");
+            Console.WriteLine("***Filter out all the neighborhoods that do not have any names***");
             var query2 =
                 from feature in neighborhoods.features
                 where feature.properties.neighborhood != ""
@@ -36,7 +36,7 @@ namespace LINQinManhattan
             }
             Console.WriteLine("===============================================================================================");
 
-            Console.WriteLine("Remove the Duplicates");
+            Console.WriteLine("***Remove the Duplicates***");
             var query3 =
                 (from feature in neighborhoods.features
                 where feature.properties.neighborhood != ""
