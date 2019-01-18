@@ -16,3 +16,20 @@ Each query builds off of the next.
 3. Remove the Duplicates
 4. Rewrite the queries from above, and consolidate all into one single query.
 5. Rewrite at least one of these questions only using the opposing method (example: Use LINQ instead of a Lambda and vice versa.)
+
+## Screenshots
+#### Query 1:
+
+![Query1](assets/query1.png)
+### Query 2:
+
+![Query2](assets/query2.png)
+### Query 3:
+
+![Query3](assets/query3.png)
+### Query 4:
+
+![Query4](assets/query4.png)
+### Query 5:
+
+![Query5](assets/query5.png)
